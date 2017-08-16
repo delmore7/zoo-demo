@@ -1,0 +1,57 @@
+description = 'zookeeper leader election'
+version = '1.0'
+group 'com.dimon'
+
+//sourceCompatibility = 1.8
+
+buildscript {
+    repositories {
+        //maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        jcenter()
+    }
+
+}
+
+allprojects {
+    repositories {
+        //maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        jcenter()
+    }
+
+
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+
+
+    ext {
+        springBootVersion = '1.5.4.RELEASE'
+        h2Version = '1.4.192'
+        mybatisBootVersion = '1.1.1'
+        hikariCPVersion = '2.4.6'
+        ehcacheVersion = '3.1.0'
+        druidVersion = '1.1.1'
+        mysqlJdbcVersion = '6.0.6'
+        thymleafVersion = '3.0.2.RELEASE'
+    }
+
+
+}
+
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/main/resource'
+        }
+        output.resourcesDir = "build/classes/main"
+    }
+}
+
+dependencies {
+    compile group: 'org.apache.zookeeper', name: 'zookeeper', version: '3.4.10'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
+
+
+}
+
